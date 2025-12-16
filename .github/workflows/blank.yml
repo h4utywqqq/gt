@@ -12,9 +12,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Set up GitHub CLI
-        uses: actions/setup-gh@v4
-
       - name: Add comment to PR 
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
