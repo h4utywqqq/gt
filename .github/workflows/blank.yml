@@ -4,6 +4,10 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  pull-requests: write
+  contents: read
+  
 jobs:
   comment-on-pr:
     runs-on: ubuntu-latest
