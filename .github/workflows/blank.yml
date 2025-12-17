@@ -1,23 +1,15 @@
-name: Comment on PR 
+name: Deploy Application
 
 on:
-  push:
-  workflow_dispatch:
+  deployment
 
-permissions:
-  pull-requests: write
-  contents: write
-  
 jobs:
-  comment-on-pr:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-
-      - name: Add comment to PR 
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Echo Deployment Info
         run: |
-          gh pr comment 1 --repo ${{ github.repository }} --body "@copilot make test file"
+          echo "GITHUB_SHA: ${{ github.sha }}"
+          echo "Triggering Deployment for Environment: ${{ github.event.deployment.environment }}"
