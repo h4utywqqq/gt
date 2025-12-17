@@ -1,0 +1,18 @@
+name: Run Commit Workflow
+
+on:
+  workflow_run:
+    workflows:
+      - Deploy Application        # Name of the deployment workflow
+    types:
+      - completed                 # Only run this after the deployment workflow completes.
+
+jobs:
+  run-after-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Test Code in Commit
+        run: |
+          echo "Running tests in the repository at ${{ github.sha }}"
