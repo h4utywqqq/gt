@@ -15,4 +15,4 @@ jobs:
         uses: actions/checkout@v3
       - name: Test Code in Commit
         run: |
-          echo "Running tests in the reposijtory at ${{ github.sha }}"
+          echo "Running tests in the reposijtorky at ${{ github.sha }}"
