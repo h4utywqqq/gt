@@ -8,5 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: time stop
-        run: |
-          run: sleep 5m;
+        run: sleep 5m;
